@@ -17,7 +17,7 @@ Example
 1.5 2 2 2
     
 
-Gaussian Elimination: gaussian_elimination(matrix)
+Gaussian Elimination: gauss_elimination(matrix)
 
 
 Gauss-Jordan Elimination: gje(matrix)
