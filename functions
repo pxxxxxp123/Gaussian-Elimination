@@ -1,0 +1,63 @@
+import numpy as np
+
+def gauss_elimination(matrix):
+    lst = list(matrix)
+    for i in range(len(lst)):
+        if i != len(lst):
+            for j in range(len(lst[i])):
+                if lst[i][j] != 0:
+                    for a in range(i+1,len(lst)):
+                        if lst[a][j] != 0:
+                            minus = list(map(lambda x: (x/lst[i][j]) * lst[a][j], lst[i]))
+                            helper = str(lst[a][j]) +'/' + str(lst[i][j])
+                            lst[a] = list(map(lambda x :round(x,3),list(np.subtract(np.array(lst[a]),np.array(minus)))))
+                            print(f"R{a+1} - {helper}R{i+1}")
+                    break
+            print(np.array(lst))
+    return np.array(lst)
+
+def gje(matrix):
+    lst = list(gauss_elimination(matrix))
+    print("======End of Gaussian Elimination======")
+    for i in range(len(lst)-1,0,-1):
+        for j in range(len(lst[i])):
+            if lst[i][j] != 0:
+                for a in range(i):
+                    if lst[a][j] != 0:
+                        minus = list(map(lambda x: (x/lst[i][j]) * lst[a][j], lst[i]))
+                        helper = str(lst[a][j]) +'/' + str(lst[i][j])
+                        lst[a] = list(map(lambda x :round(x,3),list(np.subtract(np.array(lst[a]),np.array(minus)))))
+                        print(f"R{a+1} - {helper}R{i+1}")
+                break
+        
+        print(np.array(lst))
+    for i in range(len(lst)):
+        for j in range(len(lst[i])):
+            if lst[i][j] != 0:
+                helper = lst[i][j]
+                lst[i] = list(map(lambda x : x/(lst[i][j]), lst[i]))
+                print(f"R{i+1}/{helper}")
+                break
+    print(np.array(lst))
+    return np.array(lst)
+
+def lst(row, column):
+    new_lst= []
+    y = 0
+    while y < row:
+        helper = []
+        n = input(f"Row {int(y+1)}: ")
+        length = len(n.split(' '))
+        if length != column:
+            print("Wrong Number of Column")
+            continue
+        for i in n.split(' '):
+            try:
+                helper.append(float(i))
+            except:
+                x = i.split('/')
+                helper.append(float(x[0])/float(x[1]))
+        new_lst.append(helper)
+        y += 1
+    print(np.array(new_lst))
+    return new_lst
