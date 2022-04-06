@@ -38,7 +38,6 @@ def gje(matrix):
                 lst[i] = list(map(lambda x : x/(lst[i][j]), lst[i]))
                 print(f"R{i+1}/{helper}")
                 break
-    lst.sort(key = lambda x: x.index(1))
     print(np.array(lst))
     return np.array(lst)
 
