@@ -1,7 +1,7 @@
 # Gaussian-Elimination
 
 Each method will demonstrate step-by-step instruction for Gaussian Elimination, Great for students
-This functions support integer, float andd fractions.
+This functions support integer, float and fractions.
 
 Matrix creation: lst(number of rows, number of columns)
 
